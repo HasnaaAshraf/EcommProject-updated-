@@ -1,0 +1,53 @@
+
+
+<h2 class="mt-8 mb-4 text-2xl font-bold text-main ms-10 ">Advertisements : </h2>
+
+<div class="w-3/4 mx-auto flex">
+    <div class="w-full h-96" >
+        <owl-carousel-o [options]="customOptions">
+
+            @for (item of sliderImages; track $index)
+            {
+                <ng-template carouselSlide>
+                    <img class="w-full h-96" [src]="item">
+                  </ng-template>
+            }
+        </owl-carousel-o>
+        
+    </div>
+</div>
+
+
+<h1 class="mt-8 text-2xl font-bold text-main ms-10 ">All Brands Here : </h1>
+
+<h3 class="text-danger">{{errorMess}}</h3>
+
+<div class="my-5 mt-10 ms-44">
+
+    <div class="flex flex-col flex-wrap lg:flex-row gap-x-8 gap-y-4">
+
+        @for (item of brands; track $index)
+        {
+
+            <div  class="relative flex flex-col w-1/4 gap-6 text-gray-700 bg-white hover:border-green-500 hover:shadow-lg  border shadow-md b product rounded-xl border-emerald-300 border-spacing-4 ">
+                <!-- img , titl -->
+                <div class="border-spacing-3" routerLink="/categories">
+                    <div class="relative overflow-hidden text-gray-700 bg-white rounded-lg h-96 bg-clip-border">
+                        <img [src]="item.image" class="object-fit-cover w-full h-full" />
+                    </div>
+               
+                        <div class="flex items-center justify-between mb-2 ">
+                            <h2 class="block font-serif text-2xl antialiased font-bold leading-relaxed text-center ms-3 text-main text-blue-gray-900">
+                                {{item.name}}
+                            </h2>
+                        </div>
+                    
+                </div>
+
+            </div>
+
+        }
+
+    </div>
+
+</div>

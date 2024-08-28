@@ -1,0 +1,62 @@
+
+
+<h1 class="text-main text-3xl ms-8 mb-7 font-extrabold mt-10">All Products Here </h1>
+
+<h2>{{errorMess}}</h2>
+
+<div class="my-5 ms-32">
+
+
+    <div class="flex flex-col lg:flex-row flex-wrap gap-y-4 gap-x-4 w-full">
+
+
+        @for (item of allProducts; track $index)
+        {
+
+            <div  class="relative hover:border-green-300 hover:shadow-lg shadow-md product cursor-pointer flex w-25 gap-3 flex-col rounded-xl bg-white bg-clip-border text-gray-700 border border-spacing-4 shadow-md">
+                <!-- img , titl -->
+                <div class="border-spacing-3" [routerLink]="['/productDetails' , item._id ]">
+                    <div class="relative mx-4 mt-4 h-96 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
+                        <img [src]="item.imageCover"
+                            class="h-full w-full object-cover" />
+                    </div>
+                    <div class="">
+                        <div class="mb-2 flex items-center justify-between">
+                            <p class=" ms-3 text-main block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
+                                {{item.category.name}}
+                            </p>
+                            <!-- <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
+                                {{item.price}}EGP
+                            </p> -->
+                        </div>
+                        <p class="ms-3 block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
+                           {{item.title}}
+                        </p>
+                    </div>
+                    <div class="mb-2 p-6 flex items-center justify-between">
+                        <p class=" text-main block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
+                            {{item.price}}EGP
+                        </p>
+                        <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
+                            <i class="fa-solid fa-star rating-color"></i>
+                            {{item.ratingsAverage}}
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- button -->
+                <!-- <div class="p-6 product">
+                    <button (click)="addToCartbtn(item._id)"
+                        class="block bg-main text-white w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                        type="button">
+                        {{'add To Cart'}}
+                    </button>
+                </div> -->
+        
+            </div>
+
+        }
+
+    </div>
+
+</div>
